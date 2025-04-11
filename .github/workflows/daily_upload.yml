@@ -23,5 +23,8 @@ jobs:
 
       - name: Run daily pipeline
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_TOKEN: "${{ secrets.HF_TOKEN }}"
         run: python daily_pipeline.py
+
+        env:
+  
