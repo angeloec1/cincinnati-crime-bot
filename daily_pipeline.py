@@ -44,17 +44,21 @@ def save_csv(df):
     return local_path
 
 # === STEP 3: UPLOAD TO HUGGING FACE ===
-def upload_to_huggingface(local_path):
-    print("🚀 Uploading to Hugging Face...")
-    api = HfApi(token=HF_TOKEN)
-    api.upload_file(
-        path_or_fileobj=local_path,
-        path_in_repo=FILENAME_LATEST,
-        repo_id=HF_REPO_ID,
-        repo_type="dataset",
-        repo_type_write_token=HF_TOKEN
-    )
-    print("✅ Upload complete.")
+def upload_to_huggingface(local_file):
+    try:
+        print("🔁 Starting upload to Hugging Face...")
+        api = HfApi()
+        api.upload_file(
+            path_or_fileobj=local_file,
+            path_in_repo="calls_for_service_latest.csv",
+            repo_id="mlsystemsg1/cincinnati-crime-data",
+            repo_type="dataset",
+            token=os.getenv("HF_TOKEN")
+        )
+        print("✅ Upload complete!")
+    except Exception as e:
+        print("❌ Upload to Hugging Face failed:", e)
+        raise e
 
 # === MAIN ===
 if __name__ == "__main__":
