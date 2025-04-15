@@ -3,7 +3,7 @@
 This repository powers an automated data pipeline that downloads daily police call records from the [Cincinnati Open Data Portal](https://insights.cincinnati-oh.gov/) and uploads the latest dataset to the [Hugging Face Hub](https://huggingface.co/datasets/mlsystemsg1/cincinnati-crime-data) for seamless access by chatbots and data tools.
 --- 
 ## Project Purpose
-
+To improve public access to Cincinnati crime data by developing a conversational AI chatbot that enables users to intuitively query neighborhood-level safety information. This tool aims to increase transparency, foster civic engagement, and support informed decision-making among residents, city officials, realtors, and insurers by transforming complex datasets into accessible, real-time insights. In a final state, our chatbot would accompany the existing dashboard, so that users can have a more interactive way to view the data and its impact on citizens' lives. 
 
 
 ---
