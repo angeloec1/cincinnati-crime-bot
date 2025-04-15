@@ -1,6 +1,14 @@
 # 🚔 Cincinnati Crime Bot - Data Pipeline
 
 This repository powers an automated data pipeline that downloads daily police call records from the [Cincinnati Open Data Portal](https://insights.cincinnati-oh.gov/) and uploads the latest dataset to the [Hugging Face Hub](https://huggingface.co/datasets/mlsystemsg1/cincinnati-crime-data) for seamless access by chatbots and data tools.
+--- 
+## Project Purpose
+
+
+
+---
+## Group Members
+Eliza Angelo, Seba Al Ubaidani, Vighnesh Raj, Adama Dembele, Ariela Kurtzer
 
 ---
 
@@ -32,3 +40,4 @@ cincinnati-crime-bot/
 ├── .github/workflows/
 │   └── daily_upload.yml       # GitHub Actions workflow (runs daily)
 └── test.ipynb                 # Optional experiments or testing
+
