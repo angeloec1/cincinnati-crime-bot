@@ -36,6 +36,24 @@ def fetch_cincinnati_data():
     print(f"✅ Retrieved {len(df)} records.")
     return df
 
+# === STEP 1.5: TRANSFORM DATA ===
+def transform_data(df):
+    print("🔄 Transforming data...")
+
+    # Filter required columns
+    keep_columns = ['create_time_incident', 'incident_type_desc', 'event_number', 'sna_neighborhood', 'priority']
+    df = df[keep_columns].copy()
+
+    # Convert 'create_time_incident' to datetime
+    df['create_time_incident'] = pd.to_datetime(df['create_time_incident'], errors='coerce')
+
+    # Convert priority to numeric
+    df['priority'] = pd.to_numeric(df['priority'], errors='coerce')
+
+    print(f"✅ Data transformed: {df.shape[0]} rows, {df.shape[1]} columns")
+    return df
+
+
 # === STEP 2: SAVE LOCALLY ===
 def save_csv(df):
     local_path = os.path.join(OUTPUT_DIR, FILENAME_LATEST)
@@ -63,5 +81,6 @@ def upload_to_huggingface(local_file):
 # === MAIN ===
 if __name__ == "__main__":
     df = fetch_cincinnati_data()
+    df = transform_data(df)
     local_path = save_csv(df)
     upload_to_huggingface(local_path)
