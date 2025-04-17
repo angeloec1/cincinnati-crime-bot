@@ -1,3 +1,5 @@
+streamlit
+transformers
 pandas
-sodapy
 huggingface_hub
+mlflow
