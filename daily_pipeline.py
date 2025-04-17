@@ -40,18 +40,30 @@ def fetch_cincinnati_data():
 def transform_data(df):
     print("🔄 Transforming data...")
 
-    # Filter required columns
-    keep_columns = ['create_time_incident', 'incident_type_desc', 'event_number', 'sna_neighborhood', 'priority']
+    # Columns to keep
+    keep_columns = [
+        'create_time_incident',
+        'incident_type_desc',
+        'incident_type_id',
+        'disposition_text',
+        'event_number',
+        'sna_neighborhood',
+        'priority'
+    ]
     df = df[keep_columns].copy()
 
     # Convert 'create_time_incident' to datetime
     df['create_time_incident'] = pd.to_datetime(df['create_time_incident'], errors='coerce')
 
-    # Convert priority to numeric
+    # Convert 'priority' to numeric
     df['priority'] = pd.to_numeric(df['priority'], errors='coerce')
 
-    print(f"✅ Data transformed: {df.shape[0]} rows, {df.shape[1]} columns")
+    # If 'incident_type_desc' is missing, fill it with 'disposition_text'
+    df['incident_type_desc'] = df['incident_type_desc'].fillna(df['disposition_text'])
+
+    print(f" Data transformed: {df.shape[0]} rows, {df.shape[1]} columns")
     return df
+
 
 
 # === STEP 2: SAVE LOCALLY ===
