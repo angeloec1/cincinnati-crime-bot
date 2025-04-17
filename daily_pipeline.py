@@ -48,6 +48,7 @@ def transform_data(df):
         'disposition_text',
         'event_number',
         'sna_neighborhood',
+        'cpd_neighborhood',
         'priority'
     ]
     df = df[keep_columns].copy()
@@ -61,6 +62,9 @@ def transform_data(df):
     # If 'incident_type_desc' is missing, fill it with 'disposition_text'
     df['incident_type_desc'] = df['incident_type_desc'].fillna(df['disposition_text'])
 
+    # If 'sna_neighborhood' is missing, fill it with 'cpd_neighborhood'
+    df['sna_neighborhood'] = df['sna_neighborhood'].fillna(df['cpd_neighborhood'])
+    
     print(f" Data transformed: {df.shape[0]} rows, {df.shape[1]} columns")
     return df
 
