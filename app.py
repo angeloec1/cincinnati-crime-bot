@@ -5,6 +5,8 @@ import re
 from datetime import timedelta
 from transformers import pipeline
 from huggingface_hub import hf_hub_download
+import os
+os.environ["STREAMLIT_SERVER_ENABLE_FILE_WATCHER"] = "false"
 
 hf_token = st.secrets["HF_TOKEN"]
 
