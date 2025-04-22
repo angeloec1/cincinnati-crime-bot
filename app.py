@@ -6,6 +6,8 @@ from datetime import timedelta
 from transformers import pipeline
 from huggingface_hub import hf_hub_download
 
+hf_token = st.secrets["huggingface"]["token"]
+
 # Load dataset
 @st.cache_data
 def load_crime_data():
