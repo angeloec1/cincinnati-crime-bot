@@ -1,6 +1,6 @@
 streamlit
 pandas
-transformers>=4.0.0
+transformers>=2.3.0
 huggingface_hub
 sodapy
 torch
