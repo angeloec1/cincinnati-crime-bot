@@ -111,7 +111,7 @@ Now answer this question based on the above:
 
 @st.cache_resource
 def load_model():
-    return pipeline("text2text-generation", model="google/flan-t5-small", use_auth_token=st.secrets["HF_TOKEN"])
+    return pipeline("text2text-generation", model="google/flan-t5-small", token=st.secrets["HF_TOKEN"])
 
 # Streamlit UI
 st.title("🔍 Cincinnati Crime Chatbot")
