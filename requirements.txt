@@ -4,3 +4,4 @@ transformers==4.51.3
 huggingface_hub
 sodapy
 torch
+
