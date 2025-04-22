@@ -123,5 +123,4 @@ if question:
         response = answer_with_llm(question, filtered, llm_model)
         st.success("Done!")
        
-::contentReference[oaicite:0]{index=0}
  
