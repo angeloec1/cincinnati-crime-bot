@@ -6,6 +6,9 @@ from datetime import timedelta
 from transformers import pipeline
 from huggingface_hub import hf_hub_download
 import os
+import torch
+torch.classes.__path__ = []
+
 os.environ["STREAMLIT_SERVER_ENABLE_FILE_WATCHER"] = "false"
 
 hf_token = st.secrets["HF_TOKEN"]
